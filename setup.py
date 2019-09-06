@@ -9,6 +9,8 @@ OS_NAME = 'osx'
 if sys.platform == "darwin":
     OS_NAME = 'osx'
     os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.14'
+elif sys.platform == "linux2":
+    OS_NAME = 'linux'
 
 INCLUDE_DIRS = [
     './deps/include',
@@ -18,6 +20,9 @@ INCLUDE_DIRS = [
 
 LIBRARY_DIRS = ['/usr/lib']
 
+if OS_NAME == 'linux':
+    LIBRARY_DIRS += ['/usr/lib/x86_64-linux-gnu']
+
 LIBRARIES = [
        'curl',
        'iconv',
@@ -26,22 +31,29 @@ LIBRARIES = [
 SWIG_OPTS = ['-c++']
 
 EXTRA_COMPILE_ARGS = [
-    '-D_FILE_OFFSET_BITS=64',
     '-std=c++11',
-    '-mmacosx-version-min=10.9'
 ]
+if OS_NAME == 'osx':
+    EXTRA_COMPILE_ARGS = [
+        '-D_FILE_OFFSET_BITS=64',
+        '-mmacosx-version-min=10.9'
+    ]
+
 
 EXTRA_LINK_ARGS = [
-       '-framework',
-       'IOKit', 
-       '-framework',
-       'CoreServices',
-       '-framework',
-       'System',
-       '-framework',
-       'ApplicationServices',
-       '-stdlib=libc++',
 ]
+if OS_NAME == 'osx':
+    EXTRA_LINK_ARGS = [
+        '-framework',
+        'IOKit', 
+        '-framework',
+        'CoreServices',
+        '-framework',
+        'System',
+        '-framework',
+        'ApplicationServices',
+        '-stdlib=libc++',
+    ]
 
 EXTRA_OBJECTS = [
     './deps/libgeoda/lib/' + OS_NAME + '/libgeoda.a',
