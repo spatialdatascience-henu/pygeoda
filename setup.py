@@ -9,6 +9,8 @@ OS_NAME = 'osx'
 if sys.platform == "darwin":
     OS_NAME = 'osx'
     os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.14'
+elif sys.platform == "linux2":
+    OS_NAME = 'linux'
 
 INCLUDE_DIRS = [
     './deps/include',
@@ -17,46 +19,75 @@ INCLUDE_DIRS = [
 ]
 
 LIBRARY_DIRS = ['/usr/lib']
+LIBRARIES = [] # -lxxx
 
-LIBRARIES = [
-       'curl',
-       'iconv',
-]
+if OS_NAME == 'linux':
+    LIBRARY_DIRS += ['/usr/lib/x86_64-linux-gnu']
+    LIBRARIES = []
+elif OS_NAME == 'osx':
+    LIBRARIES = ['curl', 'iconv']
 
 SWIG_OPTS = ['-c++']
 
 EXTRA_COMPILE_ARGS = [
-    '-D_FILE_OFFSET_BITS=64',
     '-std=c++11',
-    '-mmacosx-version-min=10.9'
 ]
+if OS_NAME == 'osx':
+    EXTRA_COMPILE_ARGS = [
+        '-D_FILE_OFFSET_BITS=64',
+        '-mmacosx-version-min=10.9'
+    ]
 
-EXTRA_LINK_ARGS = [
-       '-framework',
-       'IOKit', 
-       '-framework',
-       'CoreServices',
-       '-framework',
-       'System',
-       '-framework',
-       'ApplicationServices',
-       '-stdlib=libc++',
-]
 
-EXTRA_OBJECTS = [
-    './deps/libgeoda/lib/' + OS_NAME + '/libgeoda.a',
-    './deps/lib/' + OS_NAME + '/libANN.a',
-    './deps/lib/' + OS_NAME + '/libgdal.a',
-    './deps/lib/' + OS_NAME + '/libgeos.a',
-    './deps/lib/' + OS_NAME + '/libgeos_c.a',
-    './deps/lib/' + OS_NAME + '/libproj.a',
-    './deps/lib/' + OS_NAME + '/libwx_baseu-3.0.a',
-    './deps/lib/' + OS_NAME + '/libwxregexu-3.0.a',
-    './deps/lib/' + OS_NAME + '/libboost_thread.a',
-    './deps/lib/' + OS_NAME + '/libboost_system.a',
-    './deps/lib/' + OS_NAME + '/libboost_date_time.a',
-    './deps/lib/' + OS_NAME + '/libboost_chrono.a'
-]
+EXTRA_LINK_ARGS = []
+
+if OS_NAME == 'osx':
+    EXTRA_LINK_ARGS = [
+        '-framework',
+        'IOKit', 
+        '-framework',
+        'CoreServices',
+        '-framework',
+        'System',
+        '-framework',
+        'ApplicationServices',
+        '-stdlib=libc++',
+    ]
+
+EXTRA_OBJECTS = []
+
+if OS_NAME == 'linux':
+    EXTRA_OBJECTS = [
+        './deps/lib/' + OS_NAME + '/libcurl.a',
+        './deps/libgeoda/lib/' + OS_NAME + '/libgeoda.a',
+        './deps/lib/' + OS_NAME + '/libboost_thread-mt.a',
+        './deps/lib/' + OS_NAME + '/libboost_system-mt.a',
+        './deps/lib/' + OS_NAME + '/libboost_chrono-mt.a',
+        './deps/lib/' + OS_NAME + '/libboost_date_time-mt.a',
+        './deps/lib/' + OS_NAME + '/libgdal.a',
+        './deps/lib/' + OS_NAME + '/libgeos_c.a',
+        './deps/lib/' + OS_NAME + '/libgeos.a',
+        './deps/lib/' + OS_NAME + '/libproj.a',
+        './deps/lib/' + OS_NAME + '/libwx_baseu-3.0.a',
+        './deps/lib/' + OS_NAME + '/libwxregexu-3.0.a',
+        './deps/lib/' + OS_NAME + '/libANN.a',
+        './deps/lib/' + OS_NAME + '/libiconv.a',
+    ]
+elif OS_NAME == 'osx':
+    EXTRA_OBJECTS = [
+        './deps/libgeoda/lib/' + OS_NAME + '/libgeoda.a',
+        './deps/lib/' + OS_NAME + '/libANN.a',
+        './deps/lib/' + OS_NAME + '/libgdal.a',
+        './deps/lib/' + OS_NAME + '/libgeos.a',
+        './deps/lib/' + OS_NAME + '/libgeos_c.a',
+        './deps/lib/' + OS_NAME + '/libproj.a',
+        './deps/lib/' + OS_NAME + '/libwx_baseu-3.0.a',
+        './deps/lib/' + OS_NAME + '/libwxregexu-3.0.a',
+        './deps/lib/' + OS_NAME + '/libboost_thread.a',
+        './deps/lib/' + OS_NAME + '/libboost_system.a',
+        './deps/lib/' + OS_NAME + '/libboost_date_time.a',
+        './deps/lib/' + OS_NAME + '/libboost_chrono.a'
+    ]
 
 SOURCE_FILES  = [
     'pygeoda/libgeoda.cpp'
