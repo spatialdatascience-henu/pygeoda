@@ -16,7 +16,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 def print_crs(gdf_crs):
     prj_str = ''
     for k, v in gdf_crs.items():
-        param = '+' + k + '=' + v + ' '
+        param = '+' + str(k) + '=' + str(v) + ' '
         prj_str += param
     return prj_str
 
