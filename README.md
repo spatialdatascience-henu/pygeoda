@@ -16,7 +16,7 @@ Webpages:
 [pygeoda: introduction](https://lixun910.github.io/pygeoda/doc_intro.html)
 [pygeoda: esda with geoPandas](https://lixun910.github.io/pygeoda/doc_esda.html)
 
-(Note: the second notebook (esda) depends on [geoPandas](http://geopandas.org/). 
+Note: the second notebook (esda) depends on [geoPandas](http://geopandas.org/). 
 
 You can try thoese ipython notebooks in your browser (no installation required): 
 https://mybinder.org/v2/gh/lixun910/pygeoda_tutorial/master
@@ -25,7 +25,7 @@ https://mybinder.org/v2/gh/lixun910/pygeoda_tutorial/master
 
 #### Windows
 
-Please download installers from the [release page]() for Python 2.7 (32bit and 64bit) and Python 3.7 (32bit and 64bit).
+Please download installers from the [release page](https://github.com/lixun910/pygeoda/releases/tag/v0.0.2) for Python 2.7 (32bit and 64bit) and Python 3.7 (32bit and 64bit).
 
 #### Mac OSX
 
@@ -54,4 +54,5 @@ Otherwise, please install pygeoda from source:
 pip install git+https://github.com/lixun910/pygeoda
 ```
 
+Any questions, please create an issue. Thanks!
 
