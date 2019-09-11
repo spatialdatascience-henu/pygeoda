@@ -2,6 +2,8 @@
 
 pygeoda is a python library for spatial data analysis based on libgeoda and GeoDa.
 
+## version 0.0.1
+~~THis version is a prototype version and only works for Mac OSX 10.14 (Mojave)~~
 
 ## version 0.0.2
 
@@ -27,9 +29,15 @@ https://mybinder.org/v2/gh/lixun910/pygeoda_tutorial/master
 
 Please download installers from the [release page](https://github.com/lixun910/pygeoda/releases/tag/v0.0.2) for Python 2.7 (32bit and 64bit) and Python 3.7 (32bit and 64bit).
 
+Or, you can install pygeoda from source using pip:
+
+```
+pip install git+https://github.com/lixun910/pygeoda
+```
+
 #### Mac OSX
 
-If you are running Mac OSX majave (version 10.14), you should be able to install pygeoda using pip:
+If you are running Mac OSX mojave (version 10.14), you should be able to install pygeoda using pip:
 
 ```
 pip install pygeoda
