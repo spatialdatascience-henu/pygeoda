@@ -7,7 +7,7 @@ OS_NAME = 'linux'
 
 if sys.platform == "darwin":
     OS_NAME = 'osx'
-    os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.9'
+    #os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.9'
 elif sys.platform == "win32":
     if sys.maxsize > 2**32:
         OS_NAME = 'x64'
@@ -65,7 +65,7 @@ else:
     if OS_NAME == 'osx':
         EXTRA_COMPILE_ARGS = [
             '-D_FILE_OFFSET_BITS=64',
-            '-mmacosx-version-min=10.9'
+            #'-mmacosx-version-min=10.9'
         ]
 
 
