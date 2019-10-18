@@ -11,7 +11,7 @@ OS_NAME = 'linux'
 
 if sys.platform == "darwin":
     OS_NAME = 'osx'
-    #os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.9'
+    os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.14'
 elif sys.platform == "win32":
     if sys.maxsize > 2**32:
         OS_NAME = 'win64'
@@ -74,8 +74,9 @@ else:
     ]
     if OS_NAME == 'osx':
         EXTRA_COMPILE_ARGS = [
+            '-std=c++11',
             '-D_FILE_OFFSET_BITS=64',
-            #'-mmacosx-version-min=10.9'
+            '-mmacosx-version-min=10.14'
         ]
 
 
@@ -97,7 +98,7 @@ elif OS_NAME == 'osx':
         'System',
         '-framework',
         'ApplicationServices',
-        #'-stdlib=libc++',
+        '-stdlib=libc++',
     ]
 
 ###########################################################
