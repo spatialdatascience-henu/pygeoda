@@ -97,7 +97,7 @@ elif OS_NAME == 'osx':
         'System',
         '-framework',
         'ApplicationServices',
-        '-stdlib=libc++',
+        #'-stdlib=libc++',
     ]
 
 ###########################################################
