@@ -6,6 +6,7 @@ from setuptools.command.develop import develop
 from subprocess import check_call
 
 
+
 OS_NAME = 'linux'
 
 if sys.platform == "darwin":
@@ -182,8 +183,7 @@ include_package_data = False
 ##########################################################
 class update_submodules(develop):
     def run(self):
-        print 1
-        if path.exists('.git'):
+        if os.path.exists('.git'):
             check_call(['git', 'submodule', 'update', '--init', '--recursive'])
         develop.run(self)
 
