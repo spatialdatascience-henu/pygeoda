@@ -6,9 +6,14 @@ except ImportError:
     print("GeoPandas is not found. Please install GeoPandas for ESDA features.")
 
 import sys
-from .libgeoda import GeoDa, GeoDaTable
 import string
 import random
+
+from .libgeoda import GeoDa, GeoDaTable
+from .gda import geoda
+
+__author__ = "Xun Li <lixun910@gmail.com>"
+__all__ = ['geopandas_to_geoda','geoda_to_geopandas']
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
@@ -21,7 +26,14 @@ def print_crs(gdf_crs):
     return prj_str
 
 def geopandas_to_geoda(gdf):
-    print("geopandas_to_geoda")
+    """Create a geoda instance from geopandas object.
+
+    Args:
+        gdf (GeoDataFrame): An instance of geopands class.
+    
+    Returns:
+        (geoda): An instance of geoda class.
+    """
 
     geoms = gdf.geometry
     n_rows = len(gdf)
@@ -65,10 +77,18 @@ def geopandas_to_geoda(gdf):
 
     gda = GeoDa(gda_tbl, layer_name, map_type,  wkb_bytes, tuple(wkb_size), prj)
 
-    return gda
+    return geoda(gda)
 
-def geoda_to_geopandas(gda):
-    print("geoda_to_geopandas")
+def geoda_to_geopandas(geoda_obj):
+    """Create a geopandas object from a geoda object.
+
+    Args:
+        geoda_obj (geoda): An instance of geoda class.
+    
+    Returns:
+        (GeoDataFrame): An instance of geopandas class.
+    """
+    gda = geoda_obj.gda
 
     n_cols = gda.GetNumCols()
     col_nms = gda.GetFieldNames()
