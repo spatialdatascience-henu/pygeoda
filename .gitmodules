@@ -1,0 +1,15 @@
+[submodule "3rd_party/gdal_static"]
+	path = 3rd_party/gdal_static
+	url = https://github.com/libgeoda/gdal_static
+[submodule "3rd_party/wx_static"]
+	path = 3rd_party/wx_static
+	url = https://github.com/rgeoda/wx_static
+[submodule "3rd_party/boost_static"]
+	path = 3rd_party/boost_static
+	url = https://github.com/rgeoda/boost_static
+[submodule "3rd_party/ANN_static"]
+	path = 3rd_party/ANN_static
+	url = https://github.com/rgeoda/ANN_static
+[submodule "3rd_party/libgeoda_static"]
+	path = 3rd_party/libgeoda_static
+	url = https://github.com/rgeoda/libgeoda_static
