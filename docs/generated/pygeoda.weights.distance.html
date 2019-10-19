@@ -245,6 +245,33 @@
             
   <div class="section" id="pygeoda-weights-distance">
 <h1>pygeoda.weights.distance<a class="headerlink" href="#pygeoda-weights-distance" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pygeoda.weights.distance">
+<code class="sig-prename descclassname">pygeoda.weights.</code><code class="sig-name descname">distance</code><span class="sig-paren">(</span><em class="sig-param">geoda_obj</em>, <em class="sig-param">dist_thres</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygeoda/weights/distance.html#distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygeoda.weights.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a kernel weights with fixed bandwidth.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geoda_obj</strong> (<a class="reference internal" href="pygeoda.geoda.html#pygeoda.geoda" title="pygeoda.geoda"><em>geoda</em></a>) – An instance of geoda class.</p></li>
+<li><p><strong>dist_thres</strong> (<em>float</em>) – A positive numeric value of distance threshold used to find neighbors.
+For example, one can use the pygeoda.weights.min_threshold() to get a distance that
+guarantees that every observation has at least 1 neighbor.</p></li>
+<li><p><strong>power</strong> (<em>float</em><em>, </em><em>optional</em>) – The power (or exponent) of a number indicates how many times to use the number in a multiplication.</p></li>
+<li><p><strong>is_inverse</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates whether or not to apply inverse on distance value.
+Defaults to False.</p></li>
+<li><p><strong>is_arc</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates if compute arc distance or Euclidean distance. Defaults to False (Euclidean distance)</p></li>
+<li><p><strong>is_mile</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates if the distance unit is mile or km. Defaults to True (mile).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An instance of Weight class</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pygeoda.weights.Weight.html#pygeoda.weights.Weight" title="pygeoda.weights.Weight">Weight</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

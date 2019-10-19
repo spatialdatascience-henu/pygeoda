@@ -245,6 +245,53 @@
             
   <div class="section" id="pygeoda-weights-weight">
 <h1>pygeoda.weights.Weight<a class="headerlink" href="#pygeoda-weights-weight" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pygeoda.weights.Weight">
+<em class="property">class </em><code class="sig-prename descclassname">pygeoda.weights.</code><code class="sig-name descname">Weight</code><span class="sig-paren">(</span><em class="sig-param">gda_w</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygeoda/weights/weight.html#Weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygeoda.weights.Weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>GeoDa Weight class</p>
+<dl class="method">
+<dt id="pygeoda.weights.Weight.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">gda_w</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygeoda/weights/weight.html#Weight.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygeoda.weights.Weight.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor of Weight class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gda_w</strong> (<em>Object</em>) – A libgeoda GeoDaWeight pointer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GetDensity</span></code>()</p></td>
+<td><p>Get density computed from weights matrix</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GetNeighbors</span></code>(idx)</p></td>
+<td><p>Compute neighbors of idx-th observation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GetSparsity</span></code>()</p></td>
+<td><p>Get sparsity computed from weights matrix</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IsSymmetric</span></code>()</p></td>
+<td><p>Check if weights matrix is symmetric</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SaveToFile</span></code>(out_path, layer_name, id_name, …)</p></td>
+<td><p>Save current spatial weights to a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpatialLag</span></code>(idx, values)</p></td>
+<td><p>Compute spatial lag values of idx-th observation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygeoda.weights.Weight.__init__" title="pygeoda.weights.Weight.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(gda_w)</p></td>
+<td><p>Constructor of Weight class.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

@@ -244,7 +244,9 @@
 <div class="viewcode-block" id="redcap"><a class="viewcode-back" href="../../../generated/pygeoda.redcap.html#pygeoda.clustering.redcap">[docs]</a><span class="k">def</span> <span class="nf">redcap</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span>  <span class="n">bound_vals</span><span class="o">=</span><span class="p">[],</span> <span class="n">min_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">distance_method</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">123456789</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Regionalization with dynamically constrained agglomerative clustering and partitioning</span>
 
-<span class="sd">    REDCAP (Regionalization with dynamically constrained agglomerative clustering and partitioning) is developed by D. Guo (2008). Like SKATER, REDCAP starts from building a spanning tree with 3 different ways (single-linkage, average-linkage, and the complete-linkage). The single-linkage way leads to build a minimum spanning tree. Then,REDCAP provides 2 different ways (first‐order and full-order constraining) to prune the tree to find clusters. The first-order approach with a minimum spanning tree is exactly the same with SKATER. In GeoDa and pygeoda, the following methods are provided:</span>
+<span class="sd">    Like SKATER, REDCAP starts from building a spanning tree with 3 different ways (single-linkage, average-linkage, and the complete-linkage).</span>
+<span class="sd">    The single-linkage way leads to build a minimum spanning tree. Then, REDCAP provides 2 different ways to prune the tree (First-order and Full-order):</span>
+<span class="sd">    Therefore, in GeoDa and pygeoda, the following methods are provided:</span>
 
 <span class="sd">    * First-order and Single-linkage</span>
 <span class="sd">    * Full-order and Complete-linkage</span>
@@ -262,7 +264,7 @@
 <span class="sd">        random_seed (int,optional): the seed for random number generator. Defaults to 123456789. </span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (tuple): a 2d tuple represents a group of clusters</span>
+<span class="sd">        tuple: a 2d tuple represents a group of clusters</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">in_data</span> <span class="o">=</span> <span class="n">VecVecDouble</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>

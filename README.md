@@ -49,6 +49,11 @@ pip install pygeoda
 
 Otherwise, please install pygeoda from source:
 
+Note: please set MACOSX_DEPLOYMENT_TARGET to the proper version before pip installation, e.g on macOSX Mojave.
+```
+export MACOSX_DEPLOYMENT_TARGET=10.10
+```
+
 ```
 pip install git+https://github.com/lixun910/pygeoda
 ```
