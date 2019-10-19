@@ -241,39 +241,6 @@
             
   <div class="section" id="pygeoda-clustering-redcap">
 <h1>pygeoda.clustering.redcap<a class="headerlink" href="#pygeoda-clustering-redcap" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="pygeoda.clustering.redcap">
-<code class="sig-prename descclassname">pygeoda.clustering.</code><code class="sig-name descname">redcap</code><span class="sig-paren">(</span><em class="sig-param">k</em>, <em class="sig-param">w</em>, <em class="sig-param">data</em>, <em class="sig-param">method</em>, <em class="sig-param">bound_vals=[]</em>, <em class="sig-param">min_bound=0</em>, <em class="sig-param">distance_method='euclidean'</em>, <em class="sig-param">random_seed=123456789</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygeoda/clustering/redcap.html#redcap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygeoda.clustering.redcap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Regionalization with dynamically constrained agglomerative clustering and partitioning</p>
-<p>REDCAP (Regionalization with dynamically constrained agglomerative clustering and partitioning) is developed by D. Guo (2008). Like SKATER, REDCAP starts from building a spanning tree with 3 different ways (single-linkage, average-linkage, and the complete-linkage). The single-linkage way leads to build a minimum spanning tree. Then,REDCAP provides 2 different ways (first‐order and full-order constraining) to prune the tree to find clusters. The first-order approach with a minimum spanning tree is exactly the same with SKATER. In GeoDa and pygeoda, the following methods are provided:</p>
-<ul class="simple">
-<li><p>First-order and Single-linkage</p></li>
-<li><p>Full-order and Complete-linkage</p></li>
-<li><p>Full-order and Average-linkage</p></li>
-<li><p>Full-order and Single-linkage</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<em>int</em>) – number of clusters</p></li>
-<li><p><strong>w</strong> (<a class="reference internal" href="pygeoda.weights.Weight.html#pygeoda.weights.Weight" title="pygeoda.weights.Weight"><em>Weight</em></a>) – An instance of Weight class</p></li>
-<li><p><strong>data</strong> (<em>tuple</em>) – A 2d numeric list of selected variable</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – {“firstorder-singlelinkage”, “fullorder-completelinkage”, “fullorder-averagelinkage”,”fullorder-singlelinkage”}</p></li>
-<li><p><strong>bound_vals</strong> (<em>tuple</em><em>, </em><em>optional</em>) – 1d tuple of selected bounding variable</p></li>
-<li><p><strong>min_bound</strong> (<em>float</em><em>, </em><em>optional</em>) – a minimum value that the sum value of bounding variable int each cluster should be greater than</p></li>
-<li><p><strong>distance_method</strong> (<em>str</em><em>, </em><em>optional</em>) – {“euclidean”, “manhattan”} the distance method used to compute the distance betwen observation i and j. Defaults to “euclidean”. Options are “euclidean” and “manhattan”</p></li>
-<li><p><strong>random_seed</strong> (<em>int</em><em>,</em><em>optional</em>) – the seed for random number generator. Defaults to 123456789.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a 2d tuple represents a group of clusters</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(tuple)</p>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 
 
