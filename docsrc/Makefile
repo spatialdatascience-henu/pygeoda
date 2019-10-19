@@ -12,8 +12,8 @@ BUILDDIR      = ./build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 github:
-      @make html
-      @cp -a build/html/. ../docs
+	@make html
+	@cp -a build/html/. ../docs
 
 .PHONY: help Makefile
 

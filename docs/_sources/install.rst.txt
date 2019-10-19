@@ -12,8 +12,7 @@ different platforms including: Mac, Linux and Windows.
 2.1 Mac
 -------
 
-If you are running Mac OSX mojave (version 10.14), you
-should be able to install pygeoda using pip:
+If you are running Mac OSX, you should be able to install pygeoda using pip:
 ::
 
     pip install pygeoda
