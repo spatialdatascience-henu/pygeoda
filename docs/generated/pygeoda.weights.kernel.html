@@ -245,6 +245,35 @@
             
   <div class="section" id="pygeoda-weights-kernel">
 <h1>pygeoda.weights.kernel<a class="headerlink" href="#pygeoda-weights-kernel" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pygeoda.weights.kernel">
+<code class="sig-prename descclassname">pygeoda.weights.</code><code class="sig-name descname">kernel</code><span class="sig-paren">(</span><em class="sig-param">geoda_obj</em>, <em class="sig-param">k</em>, <em class="sig-param">kernel</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygeoda/weights/kernel.html#kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygeoda.weights.kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a kernel weights with fixed bandwidth.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geoda_obj</strong> (<a class="reference internal" href="pygeoda.geoda.html#pygeoda.geoda" title="pygeoda.geoda"><em>geoda</em></a>) – An instance of geoda class.</p></li>
+<li><p><strong>bandwidth</strong> (<em>float</em>) – A float value represents the distance of bandwidth used in kernel function.
+For example, one can use the pygeoda.weights.min_threshold() to get a distance that
+guarantees that every observation has at least 1 neighbor.</p></li>
+<li><p><strong>adaptive_bandwidth</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates whether to use adaptive bandwidth or
+the max distance of all observation to their k-nearest neighbors.
+Defaults to True.</p></li>
+<li><p><strong>use_kernel_diagonals</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates whether or not the lower order neighbors should be
+included in the weights structure. Defaults to False.</p></li>
+<li><p><strong>is_arc</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates if compute arc distance or Euclidean distance. Defaults to False (Euclidean distance)</p></li>
+<li><p><strong>is_mile</strong> (<em>bool</em><em>, </em><em>optional</em>) – A bool flag indicates if the distance unit is mile or km. Defaults to True (mile).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An instance of Weight class</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pygeoda.weights.Weight.html#pygeoda.weights.Weight" title="pygeoda.weights.Weight">Weight</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
