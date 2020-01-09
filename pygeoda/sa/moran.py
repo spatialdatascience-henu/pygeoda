@@ -1,4 +1,4 @@
-from ..libgeoda import gda_lisa
+from ..libgeoda import gda_localmoran
 from .lisa import lisa
 
 __author__ = "Xun Li <lixun910@gmail.com>"
@@ -19,5 +19,5 @@ def local_moran(w, data):
     if w.num_obs != len(data):
         raise("The size of data doesnt not match the number of observations.")
 
-    lisa_obj = gda_lisa(w.gda_w, data)
+    lisa_obj = gda_localmoran(w.gda_w, data)
     return lisa(lisa_obj)

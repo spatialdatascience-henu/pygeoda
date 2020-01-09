@@ -27,22 +27,16 @@ elif sys.platform == "linux2":
 INCLUDE_DIRS = []
 if OS_NAME == 'win32' or OS_NAME == 'win64':
     INCLUDE_DIRS = [
-        '.\\3rd_party\\ANN_static\\include',
         '.\\3rd_party\\boost_static\\include',
         '.\\3rd_party\\gdal_static\\include',
         '.\\3rd_party\\libgeoda_static\\include',
-        '.\\3rd_party\\wx_static\\include',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\mswu'
     ]
 
 else:
     INCLUDE_DIRS = [
-        './3rd_party/ANN_static/include',
         './3rd_party/boost_static/include',
         './3rd_party/gdal_static/include',
         './3rd_party/libgeoda_static/include',
-        './3rd_party/wx_static/include',
-        './3rd_party/wx_static/lib/' + OS_NAME + '/base-unicode-static-3.0'
     ]
 
 ###########################################################
@@ -91,15 +85,6 @@ if OS_NAME == 'win32' or OS_NAME == 'win64':
 
 elif OS_NAME == 'osx':
     EXTRA_LINK_ARGS = [
-        '-framework',
-        'IOKit', 
-        '-framework',
-        'CoreServices',
-        '-framework',
-        'System',
-        '-framework',
-        'ApplicationServices',
-        '-stdlib=libc++',
     ]
 
 ###########################################################
@@ -112,16 +97,10 @@ if OS_NAME == 'win32' or OS_NAME == 'win64':
         '.\\3rd_party\\libgeoda_static\\lib\\' + OS_NAME + '\\geoda.lib',
         '.\\3rd_party\\boost_static\\lib\\' + OS_NAME + '\\dev\\libboost_thread-vc100-mt-1_57.lib',
         '.\\3rd_party\\boost_static\\lib\\' + OS_NAME + '\\dev\\libboost_system-vc100-mt-1_57.lib',
-        '.\\3rd_party\\boost_static\\lib\\' + OS_NAME + '\\dev\\libboost_chrono-vc100-mt-1_57.lib',
         '.\\3rd_party\\boost_static\\lib\\' + OS_NAME + '\\dev\\libboost_date_time-vc100-mt-1_57.lib',
         '.\\3rd_party\\gdal_static\\lib\\' + OS_NAME + '\\dev\\gdal.lib',
         '.\\3rd_party\\gdal_static\\lib\\' + OS_NAME + '\\dev\\geos.lib',
         '.\\3rd_party\\gdal_static\\lib\\' + OS_NAME + '\\dev\\proj.lib',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\dev\\wxmsw30u.lib',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\dev\\wxregexu.lib',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\dev\\wxzlib.lib',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\dev\\wxexpat.lib',
-        '.\\3rd_party\\wx_static\\lib\\' + OS_NAME + '\\dev\\wxpng.lib',
     ]
 
 elif OS_NAME == 'linux':
@@ -129,30 +108,22 @@ elif OS_NAME == 'linux':
         './3rd_party/libgeoda_static/lib/' + OS_NAME + '/libgeoda.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_thread.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_system.a',
-        './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_chrono.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_date_time.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgdal.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgeos_c.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgeos.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libproj.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libiconv.a',
-        './3rd_party/wx_static/lib/' + OS_NAME + '/libwx_baseu-3.0.a',
-        './3rd_party/wx_static/lib/' + OS_NAME + '/libwxregexu-3.0.a',
-        './3rd_party/ANN_static/lib/' + OS_NAME + '/libANN.a',
     ]
 elif OS_NAME == 'osx':
     EXTRA_OBJECTS = [
         './3rd_party/libgeoda_static/lib/' + OS_NAME + '/libgeoda.a',
-        './3rd_party/ANN_static/lib/' + OS_NAME + '/libANN.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgdal.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgeos.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libgeos_c.a',
         './3rd_party/gdal_static/lib/' + OS_NAME + '/libproj.a',
-        './3rd_party/wx_static/lib/' + OS_NAME + '/libwx_baseu-3.0.a',
-        './3rd_party/wx_static/lib/' + OS_NAME + '/libwxregexu-3.0.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_thread.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_system.a',
-        './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_chrono.a',
         './3rd_party/boost_static/lib/' + OS_NAME + '/libboost_date_time.a',
     ]
 
@@ -206,7 +177,7 @@ else:
                             extra_objects=EXTRA_OBJECTS),]
 
 setup (name = 'pygeoda',
-       version = '0.0.3',
+       version = '0.0.4',
        author = "Xun Li",
        author_email = "lixun910@gmail.com",
        url = "https://github.com/lixun910/libgeoda",

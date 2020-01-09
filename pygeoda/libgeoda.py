@@ -1537,12 +1537,6 @@ class GeoDaWeight(object):
     __repr__ = _swig_repr
     __swig_destroy__ = _libgeoda.delete_GeoDaWeight
 
-    def SaveDIDWeights(self, num_obs, newids, stack_ids, ofname):
-        return _libgeoda.GeoDaWeight_SaveDIDWeights(self, num_obs, newids, stack_ids, ofname)
-
-    def SaveSpaceTimeWeights(self, ofname, id_vec, time_ids):
-        return _libgeoda.GeoDaWeight_SaveSpaceTimeWeights(self, ofname, id_vec, time_ids)
-
     def CheckNeighbor(self, obs_idx, nbr_idx):
         return _libgeoda.GeoDaWeight_CheckNeighbor(self, obs_idx, nbr_idx)
 
@@ -1566,9 +1560,6 @@ class GeoDaWeight(object):
 
     def Save(self, *args):
         return _libgeoda.GeoDaWeight_Save(self, *args)
-
-    def SaveToFile(self, *args):
-        return _libgeoda.GeoDaWeight_SaveToFile(self, *args)
 
     def GetSparsity(self):
         return _libgeoda.GeoDaWeight_GetSparsity(self)
@@ -1615,6 +1606,7 @@ class GeoDaWeight(object):
     mean_nbrs = property(_libgeoda.GeoDaWeight_mean_nbrs_get, _libgeoda.GeoDaWeight_mean_nbrs_set)
     median_nbrs = property(_libgeoda.GeoDaWeight_median_nbrs_get, _libgeoda.GeoDaWeight_median_nbrs_set)
     is_internal_use = property(_libgeoda.GeoDaWeight_is_internal_use_get, _libgeoda.GeoDaWeight_is_internal_use_set)
+    uid = property(_libgeoda.GeoDaWeight_uid_get, _libgeoda.GeoDaWeight_uid_set)
 
 # Register GeoDaWeight in _libgeoda:
 _libgeoda.GeoDaWeight_swigregister(GeoDaWeight)
@@ -1666,17 +1658,11 @@ class LISA(object):
     def SetUserCutoff(self, val):
         return _libgeoda.LISA_SetUserCutoff(self, val)
 
-    def GetBO(self):
-        return _libgeoda.LISA_GetBO(self)
+    def GetBO(self, current_p):
+        return _libgeoda.LISA_GetBO(self, current_p)
 
-    def SetBO(self, val):
-        return _libgeoda.LISA_SetBO(self, val)
-
-    def GetFDR(self):
-        return _libgeoda.LISA_GetFDR(self)
-
-    def SetFDR(self, val):
-        return _libgeoda.LISA_SetFDR(self, val)
+    def GetFDR(self, current_p):
+        return _libgeoda.LISA_GetFDR(self, current_p)
 
     def GetNumPermutations(self):
         return _libgeoda.LISA_GetNumPermutations(self)
@@ -1746,121 +1732,6 @@ class LISA(object):
 
 # Register LISA in _libgeoda:
 _libgeoda.LISA_swigregister(LISA)
-
-class UniG(LISA):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _libgeoda.UniG_swiginit(self, _libgeoda.new_UniG(*args))
-    __swig_destroy__ = _libgeoda.delete_UniG
-
-    def ComputeLoalSA(self):
-        return _libgeoda.UniG_ComputeLoalSA(self)
-
-    def PermLocalSA(self, cnt, perm, permNeighbors, permutedSA):
-        return _libgeoda.UniG_PermLocalSA(self, cnt, perm, permNeighbors, permutedSA)
-
-    def CountLargerSA(self, cnt, permutedSA):
-        return _libgeoda.UniG_CountLargerSA(self, cnt, permutedSA)
-
-    def GetClusterIndicators(self):
-        return _libgeoda.UniG_GetClusterIndicators(self)
-
-# Register UniG in _libgeoda:
-_libgeoda.UniG_swigregister(UniG)
-
-class UniGstar(LISA):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _libgeoda.UniGstar_swiginit(self, _libgeoda.new_UniGstar(*args))
-    __swig_destroy__ = _libgeoda.delete_UniGstar
-
-    def ComputeLoalSA(self):
-        return _libgeoda.UniGstar_ComputeLoalSA(self)
-
-    def PermLocalSA(self, cnt, perm, permNeighbors, permutedSA):
-        return _libgeoda.UniGstar_PermLocalSA(self, cnt, perm, permNeighbors, permutedSA)
-
-    def CountLargerSA(self, cnt, permutedSA):
-        return _libgeoda.UniGstar_CountLargerSA(self, cnt, permutedSA)
-
-    def GetClusterIndicators(self):
-        return _libgeoda.UniGstar_GetClusterIndicators(self)
-
-# Register UniGstar in _libgeoda:
-_libgeoda.UniGstar_swigregister(UniGstar)
-
-class UniLocalMoran(LISA):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _libgeoda.UniLocalMoran_swiginit(self, _libgeoda.new_UniLocalMoran(*args))
-    __swig_destroy__ = _libgeoda.delete_UniLocalMoran
-
-    def ComputeLoalSA(self):
-        return _libgeoda.UniLocalMoran_ComputeLoalSA(self)
-
-    def PermLocalSA(self, cnt, perm, permNeighbors, permutedSA):
-        return _libgeoda.UniLocalMoran_PermLocalSA(self, cnt, perm, permNeighbors, permutedSA)
-
-    def CountLargerSA(self, cnt, permutedSA):
-        return _libgeoda.UniLocalMoran_CountLargerSA(self, cnt, permutedSA)
-
-    def GetClusterIndicators(self):
-        return _libgeoda.UniLocalMoran_GetClusterIndicators(self)
-
-# Register UniLocalMoran in _libgeoda:
-_libgeoda.UniLocalMoran_swigregister(UniLocalMoran)
-
-class UniGeary(LISA):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _libgeoda.UniGeary_swiginit(self, _libgeoda.new_UniGeary(*args))
-    __swig_destroy__ = _libgeoda.delete_UniGeary
-
-    def ComputeLoalSA(self):
-        return _libgeoda.UniGeary_ComputeLoalSA(self)
-
-    def PermLocalSA(self, cnt, perm, permNeighbors, permutedSA):
-        return _libgeoda.UniGeary_PermLocalSA(self, cnt, perm, permNeighbors, permutedSA)
-
-    def CountLargerSA(self, cnt, permutedSA):
-        return _libgeoda.UniGeary_CountLargerSA(self, cnt, permutedSA)
-
-    def GetClusterIndicators(self):
-        return _libgeoda.UniGeary_GetClusterIndicators(self)
-
-# Register UniGeary in _libgeoda:
-_libgeoda.UniGeary_swigregister(UniGeary)
-
-class UniJoinCount(LISA):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _libgeoda.UniJoinCount_swiginit(self, _libgeoda.new_UniJoinCount(*args))
-    __swig_destroy__ = _libgeoda.delete_UniJoinCount
-
-    def ComputeLoalSA(self):
-        return _libgeoda.UniJoinCount_ComputeLoalSA(self)
-
-    def PermLocalSA(self, cnt, perm, permNeighbors, permutedSA):
-        return _libgeoda.UniJoinCount_PermLocalSA(self, cnt, perm, permNeighbors, permutedSA)
-
-    def CountLargerSA(self, cnt, permutedSA):
-        return _libgeoda.UniJoinCount_CountLargerSA(self, cnt, permutedSA)
-
-    def GetClusterIndicators(self):
-        return _libgeoda.UniJoinCount_GetClusterIndicators(self)
-
-# Register UniJoinCount in _libgeoda:
-_libgeoda.UniJoinCount_swigregister(UniJoinCount)
 
 class GeoDaColumn(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1966,13 +1837,11 @@ class GeoDa(object):
     point_type = _libgeoda.GeoDa_point_type
     polygon_type = _libgeoda.GeoDa_polygon_type
     line_type = _libgeoda.GeoDa_line_type
+    unknown_type = _libgeoda.GeoDa_unknown_type
 
     def __init__(self, *args):
         _libgeoda.GeoDa_swiginit(self, _libgeoda.new_GeoDa(*args))
     __swig_destroy__ = _libgeoda.delete_GeoDa
-
-    def GetMapType(self):
-        return _libgeoda.GeoDa_GetMapType(self)
 
     def GetNumObs(self):
         return _libgeoda.GeoDa_GetNumObs(self)
@@ -1986,11 +1855,26 @@ class GeoDa(object):
     def GetFieldNames(self):
         return _libgeoda.GeoDa_GetFieldNames(self)
 
+    def GetName(self):
+        return _libgeoda.GeoDa_GetName(self)
+
+    def GetOGRLayer(self):
+        return _libgeoda.GeoDa_GetOGRLayer(self)
+
     def GetGeometryWKB(self):
         return _libgeoda.GeoDa_GetGeometryWKB(self)
 
     def GetGeometryWKT(self):
         return _libgeoda.GeoDa_GetGeometryWKT(self)
+
+    def GetMapType(self):
+        return _libgeoda.GeoDa_GetMapType(self)
+
+    def GetCentroids(self):
+        return _libgeoda.GeoDa_GetCentroids(self)
+
+    def GetMainMap(self):
+        return _libgeoda.GeoDa_GetMainMap(self)
 
     def GetNumericCol(self, col_name):
         return _libgeoda.GeoDa_GetNumericCol(self, col_name)
@@ -2004,15 +1888,6 @@ class GeoDa(object):
     def GetUndefinesCol(self, col_name):
         return _libgeoda.GeoDa_GetUndefinesCol(self, col_name)
 
-    def GetName(self):
-        return _libgeoda.GeoDa_GetName(self)
-
-    def GetCentroids(self):
-        return _libgeoda.GeoDa_GetCentroids(self)
-
-    def GetOGRLayer(self):
-        return _libgeoda.GeoDa_GetOGRLayer(self)
-
 # Register GeoDa in _libgeoda:
 _libgeoda.GeoDa_swigregister(GeoDa)
 
@@ -2023,23 +1898,77 @@ def test():
 def ToGeoDaColumn(*args):
     return _libgeoda.ToGeoDaColumn(*args)
 
-def gda_queen_weights(*args):
-    return _libgeoda.gda_queen_weights(*args)
+def gda_localmoran(*args):
+    return _libgeoda.gda_localmoran(*args)
 
-def gda_rook_weights(*args):
-    return _libgeoda.gda_rook_weights(*args)
+def gda_geary(*args):
+    return _libgeoda.gda_geary(*args)
+
+def gda_multigeary(*args):
+    return _libgeoda.gda_multigeary(*args)
+
+def gda_joincount(*args):
+    return _libgeoda.gda_joincount(*args)
+
+def gda_multijoincount(*args):
+    return _libgeoda.gda_multijoincount(*args)
+
+def gda_localg(*args):
+    return _libgeoda.gda_localg(*args)
+
+def gda_localgstar(*args):
+    return _libgeoda.gda_localgstar(*args)
+
+def gda_quantilelisa(*args):
+    return _libgeoda.gda_quantilelisa(*args)
+
+def gda_fdr(lisa, current_p):
+    return _libgeoda.gda_fdr(lisa, current_p)
+
+def gda_bo(lisa, current_p):
+    return _libgeoda.gda_bo(lisa, current_p)
+
+def gda_demean(data):
+    return _libgeoda.gda_demean(data)
+
+def gda_standardize(data):
+    return _libgeoda.gda_standardize(data)
+
+def gda_standardize_mad(data):
+    return _libgeoda.gda_standardize_mad(data)
+
+def gda_naturalbreaks(k, data, undefs):
+    return _libgeoda.gda_naturalbreaks(k, data, undefs)
+
+def gda_guantilebreaks(k, data, undefs):
+    return _libgeoda.gda_guantilebreaks(k, data, undefs)
+
+def gda_hinge15breaks(k, data, undefs):
+    return _libgeoda.gda_hinge15breaks(k, data, undefs)
+
+def gda_hinge30breaks(k, data, undefs):
+    return _libgeoda.gda_hinge30breaks(k, data, undefs)
+
+def gda_percentilebreaks(k, data, undefs):
+    return _libgeoda.gda_percentilebreaks(k, data, undefs)
+
+def gda_stddevbreaks(k, data, undefs):
+    return _libgeoda.gda_stddevbreaks(k, data, undefs)
+
+def gda_queen_weights(geoda, order=1, include_lower_order=False, precision_threshold=0):
+    return _libgeoda.gda_queen_weights(geoda, order, include_lower_order, precision_threshold)
+
+def gda_rook_weights(geoda, order=1, include_lower_order=False, precision_threshold=0):
+    return _libgeoda.gda_rook_weights(geoda, order, include_lower_order, precision_threshold)
+
+def gda_knn_weights(*args):
+    return _libgeoda.gda_knn_weights(*args)
 
 def gda_min_distthreshold(geoda, is_arc=False, is_mile=True):
     return _libgeoda.gda_min_distthreshold(geoda, is_arc, is_mile)
 
-def gda_max_distthreshold(geoda, is_arc=False, is_mile=True):
-    return _libgeoda.gda_max_distthreshold(geoda, is_arc, is_mile)
-
 def gda_distance_weights(*args):
     return _libgeoda.gda_distance_weights(*args)
-
-def gda_knn_weights(*args):
-    return _libgeoda.gda_knn_weights(*args)
 
 def gda_maxp(*args):
     return _libgeoda.gda_maxp(*args)
@@ -2049,21 +1978,6 @@ def gda_redcap(*args):
 
 def gda_skater(*args):
     return _libgeoda.gda_skater(*args)
-
-def gda_lisa(*args):
-    return _libgeoda.gda_lisa(*args)
-
-def gda_geary(*args):
-    return _libgeoda.gda_geary(*args)
-
-def gda_joincount(*args):
-    return _libgeoda.gda_joincount(*args)
-
-def gda_localg(*args):
-    return _libgeoda.gda_localg(*args)
-
-def gda_localgstar(*args):
-    return _libgeoda.gda_localgstar(*args)
 
 def gda_sumofsquares(vals):
     return _libgeoda.gda_sumofsquares(vals)
@@ -2076,6 +1990,91 @@ def gda_withinsumofsquare(solution, vals):
 
 def gda_betweensumofsquare(solution, data):
     return _libgeoda.gda_betweensumofsquare(solution, data)
+class PCAResult(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, method):
+        _libgeoda.PCAResult_swiginit(self, _libgeoda.new_PCAResult(method))
+    __swig_destroy__ = _libgeoda.delete_PCAResult
+
+    def setMethod(self, method):
+        return _libgeoda.PCAResult_setMethod(self, method)
+
+    def setStandardDev(self, standardDev):
+        return _libgeoda.PCAResult_setStandardDev(self, standardDev)
+
+    def setPropOfVar(self, propOfVar):
+        return _libgeoda.PCAResult_setPropOfVar(self, propOfVar)
+
+    def setCumProp(self, cumProp):
+        return _libgeoda.PCAResult_setCumProp(self, cumProp)
+
+    def setThresh95(self, thresh95):
+        return _libgeoda.PCAResult_setThresh95(self, thresh95)
+
+    def setEigenValues(self, eigenValues):
+        return _libgeoda.PCAResult_setEigenValues(self, eigenValues)
+
+    def setScores(self, scores):
+        return _libgeoda.PCAResult_setScores(self, scores)
+
+    def setLoadings(self, loadings):
+        return _libgeoda.PCAResult_setLoadings(self, loadings)
+
+    def setSqCorrelations(self, sqCorrelations):
+        return _libgeoda.PCAResult_setSqCorrelations(self, sqCorrelations)
+
+    def setPriComponents(self, priComponents):
+        return _libgeoda.PCAResult_setPriComponents(self, priComponents)
+
+    def getMethod(self):
+        return _libgeoda.PCAResult_getMethod(self)
+
+    def getStandardDev(self):
+        return _libgeoda.PCAResult_getStandardDev(self)
+
+    def getPropOfVar(self):
+        return _libgeoda.PCAResult_getPropOfVar(self)
+
+    def getCumProp(self):
+        return _libgeoda.PCAResult_getCumProp(self)
+
+    def getThresh95(self):
+        return _libgeoda.PCAResult_getThresh95(self)
+
+    def getEigenValues(self):
+        return _libgeoda.PCAResult_getEigenValues(self)
+
+    def getLoadings(self):
+        return _libgeoda.PCAResult_getLoadings(self)
+
+    def getSqCorrelations(self):
+        return _libgeoda.PCAResult_getSqCorrelations(self)
+
+    def getPriComponents(self):
+        return _libgeoda.PCAResult_getPriComponents(self)
+
+    def getKComponents(self, k):
+        return _libgeoda.PCAResult_getKComponents(self, k)
+
+    def setKaiser(self, kaiser):
+        return _libgeoda.PCAResult_setKaiser(self, kaiser)
+
+    def getKaiser(self):
+        return _libgeoda.PCAResult_getKaiser(self)
+    row_lim = property(_libgeoda.PCAResult_row_lim_get, _libgeoda.PCAResult_row_lim_set)
+    col_lim = property(_libgeoda.PCAResult_col_lim_get, _libgeoda.PCAResult_col_lim_set)
+
+# Register PCAResult in _libgeoda:
+_libgeoda.PCAResult_swigregister(PCAResult)
+
+
+def gda_pca(*args):
+    return _libgeoda.gda_pca(*args)
+
+def gda_mds(*args):
+    return _libgeoda.gda_mds(*args)
 class VecGeoDaColumn(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
