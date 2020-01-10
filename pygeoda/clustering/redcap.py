@@ -1,6 +1,8 @@
 from ..libgeoda import VecVecDouble
 from ..libgeoda import gda_redcap
 
+__author__ = "Xun Li <lixun910@gmail.com>, "
+
 def redcap(k, w, data, method,  bound_vals=[], min_bound=0, distance_method='euclidean', random_seed=123456789):
     ''' Regionalization with dynamically constrained agglomerative clustering and partitioning
 
